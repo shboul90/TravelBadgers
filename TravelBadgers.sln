@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBadgers.WebMVC", "TravelBadgers.WebMVC\TravelBadgers.WebMVC.csproj", "{95AA7BA5-1A9F-470F-8BCD-70C5F0867970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBadgers.Data", "TravelBadgers.Data\TravelBadgers.Data.csproj", "{12D10471-C69A-43F6-B136-2271E74911E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBadgers.Models", "TravelBadgers.Models\TravelBadgers.Models.csproj", "{1A0F72E3-2433-4898-959A-286482B5EE74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBadgers.Services", "TravelBadgers.Services\TravelBadgers.Services.csproj", "{72B35768-4232-4E5E-A83E-3A85AA64EC1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBadgers.Contracts", "TravelBadgers.Contracts\TravelBadgers.Contracts.csproj", "{3AF7394F-CD28-4F72-A32F-A605CE7D354D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBadgers.Tests", "TravelBadgers.Tests\TravelBadgers.Tests.csproj", "{47A0DDC0-AE22-4D2D-B253-114448651738}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95AA7BA5-1A9F-470F-8BCD-70C5F0867970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95AA7BA5-1A9F-470F-8BCD-70C5F0867970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95AA7BA5-1A9F-470F-8BCD-70C5F0867970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95AA7BA5-1A9F-470F-8BCD-70C5F0867970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D10471-C69A-43F6-B136-2271E74911E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D10471-C69A-43F6-B136-2271E74911E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D10471-C69A-43F6-B136-2271E74911E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D10471-C69A-43F6-B136-2271E74911E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0F72E3-2433-4898-959A-286482B5EE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0F72E3-2433-4898-959A-286482B5EE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0F72E3-2433-4898-959A-286482B5EE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0F72E3-2433-4898-959A-286482B5EE74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B35768-4232-4E5E-A83E-3A85AA64EC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B35768-4232-4E5E-A83E-3A85AA64EC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B35768-4232-4E5E-A83E-3A85AA64EC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B35768-4232-4E5E-A83E-3A85AA64EC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF7394F-CD28-4F72-A32F-A605CE7D354D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF7394F-CD28-4F72-A32F-A605CE7D354D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF7394F-CD28-4F72-A32F-A605CE7D354D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF7394F-CD28-4F72-A32F-A605CE7D354D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47A0DDC0-AE22-4D2D-B253-114448651738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47A0DDC0-AE22-4D2D-B253-114448651738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47A0DDC0-AE22-4D2D-B253-114448651738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47A0DDC0-AE22-4D2D-B253-114448651738}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED39ADE2-EE0F-40C8-8499-E8B2B5848FED}
+	EndGlobalSection
+EndGlobal
