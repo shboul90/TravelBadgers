@@ -54,11 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CityCreate.cs" />
+    <Compile Include="CityDetail.cs" />
+    <Compile Include="CityEdit.cs" />
+    <Compile Include="CityListItem.cs" />
+    <Compile Include="MemberCreate.cs" />
+    <Compile Include="MemberEdit.cs" />
+    <Compile Include="MemberDetail.cs" />
+    <Compile Include="MemberListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TravelBadgers.Data\TravelBadgers.Data.csproj">
+      <Project>{12D10471-C69A-43F6-B136-2271E74911E1}</Project>
+      <Name>TravelBadgers.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
