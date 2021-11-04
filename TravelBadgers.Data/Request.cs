@@ -24,13 +24,12 @@ namespace TravelBadgers.Data
         [Required]
         public bool FromHomeTown { get; set; }
 
-        [Required]
         [ForeignKey(nameof(City))]
         public int CityId { get; set; }
         public virtual City City { get; set; }
 
+        [Required]
         public decimal OverallBudget { get; set; }
-
 
         [Required]
         public DateTime DepartDate { get; set; }

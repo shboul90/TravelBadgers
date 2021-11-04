@@ -5,15 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelBadgers.Data
+namespace TravelBadgers.Models
 {
-    public class Airport
+    public class AirportEdit
     {
-        [Key]
-        public int AirportId { get; set; }
-
         [Required]
-        public Guid OwnerId { get; set; }
+        public int AirportId { get; set; }
 
         [Required]
         public string AirportName { get; set; }

@@ -11,6 +11,7 @@ namespace TravelBadgers.Data
     {
         [Key]
         public int MemberId { get; set; }
+
         [Required]
         public Guid OwnerId { get; set; }
 
