@@ -35,6 +35,8 @@ namespace TravelBadgers.Data
 
         public DbSet<Request> Requests { get; set; }
 
+        public DbSet<Airport> Airports { get; set; }
+
         public DbSet<City> Cities { get; set; }
 
         public DbSet<TripOverview> TripOverviews { get; set; }

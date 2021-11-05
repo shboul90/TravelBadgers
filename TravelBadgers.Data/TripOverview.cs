@@ -17,21 +17,20 @@ namespace TravelBadgers.Data
         public Guid OwnerId { get; set; }
 
         [Required]
-        [ForeignKey(nameof(City))]
-        public int ArrivalCityId { get; set; }
-        public int DepartCityId { get; set; }
-        public virtual City City { get; set; }
-
-        [Required]
         [ForeignKey(nameof(Request))]
         public int RequestId { get; set; }
         public virtual Request Request { get; set; }
 
         [Required]
-        public decimal FlightCost { get; set; }
+        [ForeignKey(nameof(City))]
+        public List<int> ArrivalCityId { get; set; }
+        public virtual City ArrivalCity { get; set; }
 
         [Required]
-        public decimal OverallCost { get; set; }
+        public List<decimal> FlightCost { get; set; }
+
+        [Required]
+        public List<decimal> OverallCost { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

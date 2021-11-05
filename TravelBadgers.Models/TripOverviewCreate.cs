@@ -13,19 +13,19 @@ namespace TravelBadgers.Models
         public Guid OwnerId { get; set; }
 
         [Required]
-        public int ArrivalCityId { get; set; }
+        public int RequestId { get; set; }
 
         [Required]
         public int DepartCityId { get; set; }
 
         [Required]
-        public int RequestId { get; set; }
+        public List<int> ArrivalCityId { get; set; }
 
         [Required]
-        public decimal FlightCost { get; set; }
+        public List<decimal> FlightCost { get; set; }
 
         [Required]
-        public decimal OverallCost { get; set; }
+        public List<decimal> OverallCost { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

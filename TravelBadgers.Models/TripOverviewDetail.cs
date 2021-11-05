@@ -10,15 +10,15 @@ namespace TravelBadgers.Models
     {
         public int TripOverviewId { get; set; }
 
-        public int ArrivalCityId { get; set; }
-
         public int DepartCityId { get; set; }
 
         public int RequestId { get; set; }
+        
+        public List<int> ArrivalCityId { get; set; }
 
-        public decimal FlightCost { get; set; }
+        public List<decimal> FlightCost { get; set; }
 
-        public decimal OverallCost { get; set; }
+        public List<decimal> OverallCost { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
     }
