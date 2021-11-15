@@ -1,0 +1,90 @@
+﻿@model TravelBadgers.Models.CityDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CityDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CityId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationNorth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationNorth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationWest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationWest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvgHotelDailyCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvgHotelDailyCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvgEntertainmentDaily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvgEntertainmentDaily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvgFoodDaily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvgFoodDaily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityRating)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CityId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

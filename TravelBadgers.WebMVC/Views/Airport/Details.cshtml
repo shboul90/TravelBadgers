@@ -1,0 +1,58 @@
+﻿@model TravelBadgers.Models.AirportDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AirportDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AirportId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AirportId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AirportName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AirportName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AirpotZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AirpotZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationNorth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationNorth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationWest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationWest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AirportId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

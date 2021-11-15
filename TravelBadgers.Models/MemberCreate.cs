@@ -10,20 +10,29 @@ namespace TravelBadgers.Models
     public class MemberCreate
     {
         [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
 
+        [Display(Name = "City")]
         public string City { get; set; }
 
+        [Display(Name = "State")]
         public string State { get; set; }
 
+        [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
+        [Display(Name = "Date Joined")]
         public DateTime DateJoined { get; set; }
     }
 }

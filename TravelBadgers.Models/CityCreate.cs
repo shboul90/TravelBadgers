@@ -11,9 +11,11 @@ namespace TravelBadgers.Models
     public class CityCreate
     {
         [Required]
+        [Display(Name = "City Name")]
         public string CityName { get; set; }
 
         [Required]
+        [Display(Name = "City ZipCode")]
         public string CityZipCode { get; set; }
 
         [Required]
@@ -23,12 +25,15 @@ namespace TravelBadgers.Models
         public decimal LocationWest { get; set; }
 
         [Required]
+        [Display(Name = "Average Daily Hotel Cost")]
         public decimal AvgHotelDailyCost { get; set; }
 
         [Required]
+        [Display(Name = "Average Daily Entertainment Cost")]
         public decimal AvgEntertainmentDaily { get; set; }
 
         [Required]
+        [Display(Name = "Average Daily Food Cost")]
         public decimal AvgFoodDaily { get; set; }
 
         [Required]
@@ -40,7 +45,7 @@ namespace TravelBadgers.Models
         [Required]
         public TerrainType Terrain { get; set; }
 
-
+        [Display(Name = "City Rating")]
         public decimal CityRating { get; set; }
     }
 }

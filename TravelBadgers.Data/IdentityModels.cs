@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -17,6 +18,17 @@ namespace TravelBadgers.Data
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             return userIdentity;
+        }
+
+        public DateTime DateRegistered {
+            get
+            {
+                return DateTime.Now;
+            }
+            set
+            {
+
+            }
         }
     }
 

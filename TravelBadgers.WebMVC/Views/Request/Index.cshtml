@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TravelBadgers.Models.RequestListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OverallBudget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OverallBudget)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUtc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RequestId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.RequestId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RequestId })
+        </td>
+    </tr>
+}
+
+</table>

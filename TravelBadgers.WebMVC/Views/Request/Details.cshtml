@@ -1,0 +1,74 @@
+﻿@model TravelBadgers.Models.RequestDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RequestDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverallBudget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverallBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RequestId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

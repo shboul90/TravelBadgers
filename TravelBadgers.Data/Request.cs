@@ -16,14 +16,6 @@ namespace TravelBadgers.Data
         [Required]
         public Guid OwnerId { get; set; }
 
-        [Required]
-        [ForeignKey(nameof(Member))]
-        public int MemberId { get; set; }
-        public virtual Member Member { get; set; }
-
-        [Required]
-        public bool FromHomeTown { get; set; }
-
         [ForeignKey(nameof(City))]
         public int CityId { get; set; }
         public virtual City City { get; set; }

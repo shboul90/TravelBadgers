@@ -1,0 +1,96 @@
+﻿@model TravelBadgers.Models.CityDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CityDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CityId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationNorth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationNorth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationWest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationWest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvgHotelDailyCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvgHotelDailyCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvgEntertainmentDaily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvgEntertainmentDaily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvgFoodDaily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvgFoodDaily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityRating)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
