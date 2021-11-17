@@ -9,11 +9,11 @@ using TravelBadgers.Models;
 
 namespace TravelBadgers.Services
 {
-    public class TripOverviewService
+    public class TripService
     {
         private readonly Guid _userId;
 
-        public TripOverviewService(Guid userId)
+        public TripService(Guid userId)
         {
             _userId = userId;
         }
@@ -42,7 +42,7 @@ namespace TravelBadgers.Services
             }
         }
 
-        public bool CreateTripOverview(Request model)
+        public bool CreateTrip(Request model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -52,9 +52,9 @@ namespace TravelBadgers.Services
                 citiesWithDepartRemoved.Remove(arrivingCity);
                 List<decimal> flightCosts = new List<decimal>();
                 List<decimal> overallCosts = new List<decimal>();
-                City departing = new City();
+                City departing = arrivingCity;
 
-                decimal daysToSpend = (decimal)model.DepartDate.Subtract(model.ReturnDate).TotalDays;
+                decimal daysToSpend = (decimal)model.ReturnDate.Subtract(model.DepartDate).TotalDays;
 
 
                 foreach (City x in citiesWithDepartRemoved)
@@ -77,10 +77,11 @@ namespace TravelBadgers.Services
                     double cosWest = Math.Cos(departingnWestDegrees - arrivingWestDegrees);
                     double multCosines = cosNorthDeparting * cosNorthArriving * cosWest;
                     double multSines = sinNorthDeparting * sinNorthArriving;
+                    double addSinCos = multSines + multCosines;
 
-                    double aCosineOverall = Math.Acos(multSines + multCosines);
+                    double aCosineOverall = Math.Acos(addSinCos);
 
-                    double distanceCalcReturn = 3443.8985 * aCosineOverall * 2;
+                    double distanceCalcReturn = 3443.8985 * aCosineOverall * 2 * 0.4;
 
                     decimal overallDistance = (decimal)distanceCalcReturn;
 
@@ -102,7 +103,7 @@ namespace TravelBadgers.Services
 
                 foreach (City arriving in citiesWithDepartRemoved)
                 {
-                    if(overallCosts[counter] <= model.OverallBudget)
+                    if (overallCosts[counter] <= model.OverallBudget)
                     {
                         citiesWithinBugdet.Add(arriving);
                         flightCostsWithinBugdet.Add(flightCosts[counter]);
@@ -112,37 +113,46 @@ namespace TravelBadgers.Services
                     counter = counter + 1;
                 }
 
-                var trip =
-                    new TripOverview()
+                int counter2 = 0;
+
+                foreach (City tripsAvailable in citiesWithinBugdet )
+                {
+                  var trips =
+                    new Trip()
                     {
                         OwnerId = _userId,
                         RequestId = model.RequestId,
-                        CitiesWithinBudget = citiesWithinBugdet,
-                        CreatedUtc = DateTimeOffset.UtcNow
+                        ArrivalCity = tripsAvailable,
+                        FlightCost = flightCostsWithinBugdet[counter2],
+                        OverallCost = overallCostsWithinBugdet[counter2]
                     };
 
-                ctx.TripOverviews.Add(trip);
-                return ctx.SaveChanges() == 1;
+                    ctx.Trips.Add(trips);
+
+                    counter2 = counter2 + 1;
+                }
+                
+                return ctx.SaveChanges() > 0;
             }
         }
 
-        public IEnumerable<TripOverviewListItem> GetTripOverviews()
+        public IEnumerable<TripListItem> GetTrips()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .TripOverviews
+                        .Trips
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             request =>
-                                new TripOverviewListItem
+                                new TripListItem
                                 {
-                                    TripOverviewId = request.TripOverviewId,
-                                    DepartCityId = request.Request.CityId,
-                                    //ArrivalCityId = request.ArrivalCityId,
-                                    //OverallCost = request.OverallCost,
-                                    CreatedUtc = request.CreatedUtc
+                                    TripId = request.TripId,
+                                    RequestId = request.RequestId,
+                                    DepartCityName = request.Request.City.CityName,
+                                    ArrivalCityName = request.ArrivalCity.CityName,
+                                    OverallCost = request.OverallCost
                                 }
                        );
 
@@ -150,38 +160,37 @@ namespace TravelBadgers.Services
             }
         }
 
-        public TripOverviewDetail GetTripOverviewById(int id)
+        public TripDetail GetTripById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .TripOverviews
-                        .Single(e => e.TripOverviewId == id && e.OwnerId == _userId);
+                        .Trips
+                        .Single(e => e.TripId == id && e.OwnerId == _userId);
                 return
-                    new TripOverviewDetail
+                    new TripDetail
                     {
-                        TripOverviewId = entity.TripOverviewId,
-                        DepartCityId = entity.Request.CityId,
+                        TripId = entity.TripId,
                         RequestId = entity.RequestId,
-                        ArrivalCityId = entity.CitiesWithinBudget,
-                        //FlightCost = entity.FlightCost,
-                        //OverallCost = entity.OverallCost,
-                        CreatedUtc = entity.CreatedUtc
+                        DepartCityName = entity.Request.City.CityName,
+                        ArrivalCityName = entity.ArrivalCity.CityName,
+                        FlightCost = entity.FlightCost,
+                        OverallCost = entity.OverallCost
                     };
             }
         }
 
-        public bool DeleteTripOverview(int id)
+        public bool DeleteTrip(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .TripOverviews
-                        .Single(e => e.TripOverviewId == id && e.OwnerId == _userId);
+                        .Trips
+                        .Single(e => e.TripId == id && e.OwnerId == _userId);
 
-                ctx.TripOverviews.Remove(entity);
+                ctx.Trips.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

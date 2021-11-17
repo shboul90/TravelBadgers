@@ -175,6 +175,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
+    <Compile Include="Controllers\TripController.cs" />
+    <Compile Include="Controllers\TripOverviewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,6 +260,12 @@
     <Content Include="Views\Request\Details.cshtml" />
     <Content Include="Views\Request\Edit.cshtml" />
     <Content Include="Views\Request\Delete.cshtml" />
+    <Content Include="Views\TripOverview\Index.cshtml" />
+    <Content Include="Views\TripOverview\Create.cshtml" />
+    <Content Include="Views\Trip\Index.cshtml" />
+    <Content Include="Views\Trip\Create.cshtml" />
+    <Content Include="Views\Trip\Details.cshtml" />
+    <Content Include="Views\Trip\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

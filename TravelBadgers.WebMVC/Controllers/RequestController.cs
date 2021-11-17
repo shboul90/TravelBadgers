@@ -36,8 +36,17 @@ namespace TravelBadgers.WebMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateRequestService();
-
-            if (service.CreateRequest(model))
+            if(model.DepartDate <= DateTime.Now)
+            {
+                TempData["DepartDate"] = "Your Depart Date most be at least one day out";
+                return RedirectToAction("Create");
+            }
+            else if (model.ReturnDate != null && model.ReturnDate <= model.DepartDate)
+            {
+                TempData["ArrivalDate"] = "Your Return Date most be greater than your Depart Date.";
+                return RedirectToAction("Create");
+            }
+            else if (service.CreateRequest(model))
             {
                 TempData["SaveResult"] = "Your request was created.";
                 return RedirectToAction("Index");
@@ -98,7 +107,7 @@ namespace TravelBadgers.WebMVC.Controllers
             return View();
         }
 
-        [ActionName("Delete")]
+
         public ActionResult Delete(int id)
         {
             var service = CreateRequestService();

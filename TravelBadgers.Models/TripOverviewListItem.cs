@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelBadgers.Data;
 
 namespace TravelBadgers.Models
 {
@@ -15,10 +16,7 @@ namespace TravelBadgers.Models
         public int DepartCityId { get; set; }
 
         [Display(Name = "Arrival City")]
-        public List<int> ArrivalCityId { get; set; }
-
-        [Display(Name = "Overall Trip Cost")]
-        public List<decimal> OverallCost { get; set; }
+        public ICollection<City> ArrivalCityId { get; set; }
 
         [Display(Name = "Date Create")]
         public DateTimeOffset CreatedUtc { get; set; }

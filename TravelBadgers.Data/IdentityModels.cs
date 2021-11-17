@@ -43,6 +43,8 @@ namespace TravelBadgers.Data
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Trip> Trips { get; set; }
+
         public DbSet<Member> Members { get; set; }
 
         public DbSet<Request> Requests { get; set; }

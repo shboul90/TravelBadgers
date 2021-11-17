@@ -3,7 +3,7 @@ namespace TravelBadgers.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initl : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -37,8 +37,11 @@ namespace TravelBadgers.Data.Migrations
                         Climate = c.Int(nullable: false),
                         Terrain = c.Int(nullable: false),
                         CityRating = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        TripOverview_TripOverviewId = c.Int(),
                     })
-                .PrimaryKey(t => t.CityId);
+                .PrimaryKey(t => t.CityId)
+                .ForeignKey("dbo.TripOverview", t => t.TripOverview_TripOverviewId)
+                .Index(t => t.TripOverview_TripOverviewId);
             
             CreateTable(
                 "dbo.Member",
@@ -63,8 +66,6 @@ namespace TravelBadgers.Data.Migrations
                     {
                         RequestId = c.Int(nullable: false, identity: true),
                         OwnerId = c.Guid(nullable: false),
-                        MemberId = c.Int(nullable: false),
-                        FromHomeTown = c.Boolean(nullable: false),
                         CityId = c.Int(nullable: false),
                         OverallBudget = c.Decimal(nullable: false, precision: 18, scale: 2),
                         DepartDate = c.DateTime(nullable: false),
@@ -74,8 +75,6 @@ namespace TravelBadgers.Data.Migrations
                     })
                 .PrimaryKey(t => t.RequestId)
                 .ForeignKey("dbo.City", t => t.CityId, cascadeDelete: true)
-                .ForeignKey("dbo.Member", t => t.MemberId, cascadeDelete: true)
-                .Index(t => t.MemberId)
                 .Index(t => t.CityId);
             
             CreateTable(
@@ -110,9 +109,23 @@ namespace TravelBadgers.Data.Migrations
                         OwnerId = c.Guid(nullable: false),
                         RequestId = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ArrivalCity_CityId = c.Int(),
                     })
                 .PrimaryKey(t => t.TripOverviewId)
+                .ForeignKey("dbo.Request", t => t.RequestId, cascadeDelete: true)
+                .Index(t => t.RequestId);
+            
+            CreateTable(
+                "dbo.Trip",
+                c => new
+                    {
+                        TripId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        RequestId = c.Int(nullable: false),
+                        FlightCost = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        OverallCost = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ArrivalCity_CityId = c.Int(),
+                    })
+                .PrimaryKey(t => t.TripId)
                 .ForeignKey("dbo.City", t => t.ArrivalCity_CityId)
                 .ForeignKey("dbo.Request", t => t.RequestId, cascadeDelete: true)
                 .Index(t => t.RequestId)
@@ -123,6 +136,7 @@ namespace TravelBadgers.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        DateRegistered = c.DateTime(nullable: false),
                         Email = c.String(),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -171,22 +185,25 @@ namespace TravelBadgers.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
+            DropForeignKey("dbo.Trip", "RequestId", "dbo.Request");
+            DropForeignKey("dbo.Trip", "ArrivalCity_CityId", "dbo.City");
             DropForeignKey("dbo.TripOverview", "RequestId", "dbo.Request");
-            DropForeignKey("dbo.TripOverview", "ArrivalCity_CityId", "dbo.City");
+            DropForeignKey("dbo.City", "TripOverview_TripOverviewId", "dbo.TripOverview");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Request", "MemberId", "dbo.Member");
             DropForeignKey("dbo.Request", "CityId", "dbo.City");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
-            DropIndex("dbo.TripOverview", new[] { "ArrivalCity_CityId" });
+            DropIndex("dbo.Trip", new[] { "ArrivalCity_CityId" });
+            DropIndex("dbo.Trip", new[] { "RequestId" });
             DropIndex("dbo.TripOverview", new[] { "RequestId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.Request", new[] { "CityId" });
-            DropIndex("dbo.Request", new[] { "MemberId" });
+            DropIndex("dbo.City", new[] { "TripOverview_TripOverviewId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
+            DropTable("dbo.Trip");
             DropTable("dbo.TripOverview");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");

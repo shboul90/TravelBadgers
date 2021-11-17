@@ -93,6 +93,9 @@
     <Compile Include="RequestDetail.cs" />
     <Compile Include="RequestEdit.cs" />
     <Compile Include="RequestListItem.cs" />
+    <Compile Include="TripCreate.cs" />
+    <Compile Include="TripDetail.cs" />
+    <Compile Include="TripListItem.cs" />
     <Compile Include="TripOverviewCreate.cs" />
     <Compile Include="TripOverviewDetail.cs" />
     <Compile Include="TripOverviewListItem.cs" />
