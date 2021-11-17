@@ -58,9 +58,9 @@
     <Compile Include="City.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Member.cs" />
-    <Compile Include="Migrations\202111170111508_Initial.cs" />
-    <Compile Include="Migrations\202111170111508_Initial.Designer.cs">
-      <DependentUpon>202111170111508_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202111170242041_Initial.cs" />
+    <Compile Include="Migrations\202111170242041_Initial.Designer.cs">
+      <DependentUpon>202111170242041_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,8 +73,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111170111508_Initial.resx">
-      <DependentUpon>202111170111508_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111170242041_Initial.resx">
+      <DependentUpon>202111170242041_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

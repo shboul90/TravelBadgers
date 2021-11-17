@@ -13,7 +13,7 @@ namespace TravelBadgers.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202111170111508_Initial"; }
+            get { return "202111170242041_Initial"; }
         }
         
         string IMigrationMetadata.Source
