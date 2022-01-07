@@ -21,3 +21,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.nav-logo {
+    border: solid 2px black;
+    border-radius: 50px 50px 50px 50px;
+    height: 60px;
+}

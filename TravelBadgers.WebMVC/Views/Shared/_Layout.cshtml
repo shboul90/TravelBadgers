@@ -20,18 +20,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>*@
-                <a class="navbar-brand" href="@Url.Action("Index", "Home")">Travel Badger</a>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img  class="nav-logo" src="~/Content/img/badger-run.png"/>Travel Badger</a>
             </div>
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Quick Links</a>
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Site Links</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Member")">Account</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Request")">Requests</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Trip")">Trips</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Home")">Home Page</a>
                     </div>
                 </li>
             </ul>
