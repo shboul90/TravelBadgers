@@ -498,8 +498,8 @@ progress {
 }
 
 .lead {
-  font-size: 1.25rem;
-  font-weight: 300;
+    font-size: 1.25rem;
+    font-weight: 300;
 }
 
 .display-1 {
@@ -1194,7 +1194,12 @@ progress {
   .col-md-4 {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    width: 33.333333%;
+    width: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    margin-bottom: 50px;
+    border-radius: 5px;
   }
   .col-md-5 {
     -ms-flex: 0 0 auto;
@@ -1909,6 +1914,7 @@ progress {
   color: #839496;
   vertical-align: top;
   border-color: #073642;
+  text-align: center;
 }
 
 .table > :not(caption) > * > * {
@@ -3685,7 +3691,7 @@ fieldset:disabled .btn {
 }
 
 .fade:not(.show) {
-  opacity: 0;
+  opacity: 1;
 }
 
 .collapse:not(.show) {

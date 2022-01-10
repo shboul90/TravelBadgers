@@ -4,54 +4,59 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Cities Within The Database</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CityName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AvgHotelDailyCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AvgEntertainmentDaily)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AvgFoodDaily)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CityRating)
-        </th>
-        <th></th>
-    </tr>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.CityName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.AvgHotelDailyCost)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.AvgEntertainmentDaily)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.AvgFoodDaily)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.CityRating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CityName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AvgHotelDailyCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AvgEntertainmentDaily)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AvgFoodDaily)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CityRating)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CityId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CityId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CityId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvgHotelDailyCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvgEntertainmentDaily)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvgFoodDaily)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CityRating)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CityId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CityId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CityId })
+                </td>
+            </tr>
+        </tbody>
+     }
 
-</table>
+    </table>

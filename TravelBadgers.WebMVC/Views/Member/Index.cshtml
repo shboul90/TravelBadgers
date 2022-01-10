@@ -4,22 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Account Details</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Update User Information", "Create")
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
-
         <button type="button" class="close" data-dismiss="alert">
             <span>&times;</span>
         </button>
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
+<table class="table table-dark">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.MemberId)
@@ -53,7 +52,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
     }
